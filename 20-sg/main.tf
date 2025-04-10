@@ -41,6 +41,16 @@ module "bastion_sg" {
     vpc_id = local.vpc_id
 }
 
+# module "ansible_sg" {
+#     source = "../../terraform-aws-security-group"
+#     Project_name = var.project_name
+#     environment = var.environment
+#     common_tags = var.common_tags
+#     sg_name = "ansible"
+#     sg_tags = var.ansible_sg_tags
+#     vpc_id = local.vpc_id
+# }
+
 resource "aws_security_group_rule" "mysql_accepting_from_backend" {
     type = "ingress"
     from_port = 3306
@@ -95,3 +105,30 @@ resource "aws_security_group_rule" "frontend_accepting_from_bastion" {
     source_security_group_id = module.bastion_sg.bastion_sg_id
     security_group_id = module.frontend_sg.frontend_sg_id    
 }
+
+# resource "aws_security_group_rule" "mysql_accepting_from_ansible" {
+#     type = "ingress"
+#     from_port = 22
+#     to_port = 22
+#     protocol = "tcp"
+#     source_security_group_id = module.ansible_sg.ansible_sg_id
+#     security_group_id = module.mysql_sg.mysql_sg_id
+# }
+
+# resource "aws_security_group_rule" "backend_accepting_from_ansible" {
+#     type = "ingress"
+#     from_port = 22
+#     to_port = 22
+#     protocol = "tcp"
+#     source_security_group_id = module.ansible_sg.ansible_sg_id
+#     security_group_id = module.backend_sg.backend_sg_id
+# }
+
+# resource "aws_security_group_rule" "frontend_accepting_from_ansible" {
+#     type = "ingress"
+#     from_port = 22
+#     to_port = 22
+#     protocol = "tcp"
+#     source_security_group_id = module.backend_sg.backend_sg_id
+#     security_group_id = module.frontend_sg.frontend_sg_id
+# }

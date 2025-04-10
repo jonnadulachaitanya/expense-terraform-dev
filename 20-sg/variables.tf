@@ -36,3 +36,9 @@ variable "bastion_sg_tags" {
         component = "frontend"
     }
 }
+
+variable "ansible_sg_tags" {
+    default = {
+        component = "ansible"
+    }
+}
