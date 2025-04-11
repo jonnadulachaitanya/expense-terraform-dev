@@ -37,3 +37,6 @@ variable "ansible_tags" {
         component = "ansible"
     }
 }
+variable "zone_name" {
+    default = "chaitanyaproject.online"
+}
