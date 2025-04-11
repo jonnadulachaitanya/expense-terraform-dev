@@ -52,8 +52,8 @@ module "frontend" {
     )
 }
 
-# module "ansible" {
-#     source  = "terraform-aws-modules/ec2-instance/aws"
+module "ansible" {
+    source  = "terraform-aws-modules/ec2-instance/aws"
 
 #     ami = data.aws_ami.joindevops.id
 #     name = "${local.resource_name}-ansible"
