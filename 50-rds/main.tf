@@ -18,6 +18,7 @@ module "mysql" {
   #iam_database_authentication_enabled = true (we do not need this as of now)
 
   vpc_security_group_ids = [local.mysql_sg_id]
+  skip_final_snapshot = true
 
 #   maintenance_window = "Mon:00:00-Mon:03:00"
 #   backup_window      = "03:00-06:00"
@@ -29,8 +30,8 @@ module "mysql" {
 #   create_monitoring_role = true
 
   tags = merge(
-    common_tags,
-    rdc_tags
+    var.common_tags,
+    var.rds_tags
   )
 
   # DB subnet group

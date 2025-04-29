@@ -2,7 +2,7 @@ terraform {
     required_providers {
         aws = {
             source = "hashicorp/aws"
-            version = "5.66.0"
+            version = ">= 5.91.0"
         }
     }
 
@@ -10,7 +10,7 @@ terraform {
         bucket = "chaitanya-project-remote-state"
         key = "expense-rds"
         dynamodb_table = "chaitanya-locking"
-        region = "us-east-a"
+        region = "us-east-1"
     }
 }
 
