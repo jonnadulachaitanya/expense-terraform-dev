@@ -1,5 +1,5 @@
 module "mysql_sg" {
-    source = "../../terraform-aws-security-group"
+    source = "git::https://github.com/jonnadulachaitanya/terraform-aws-security-group.git?ref=main"
     Project_name = var.project_name
     environment = var.environment
     common_tags = var.common_tags
@@ -10,7 +10,7 @@ module "mysql_sg" {
 
 
 module "backend_sg" {
-    source = "../../terraform-aws-security-group"
+    source = "git::https://github.com/jonnadulachaitanya/terraform-aws-security-group.git?ref=main"
     Project_name = var.project_name
     environment = var.environment
     common_tags = var.common_tags
@@ -22,7 +22,7 @@ module "backend_sg" {
 }
 
 module "frontend_sg" {
-    source = "../../terraform-aws-security-group"
+    source = "git::https://github.com/jonnadulachaitanya/terraform-aws-security-group.git?ref=main"
     Project_name = var.project_name
     environment = var.environment
     common_tags = var.common_tags
@@ -32,7 +32,7 @@ module "frontend_sg" {
 }
 
 module "bastion_sg" {
-    source = "../../terraform-aws-security-group"
+    source = "git::https://github.com/jonnadulachaitanya/terraform-aws-security-group.git?ref=main"
     Project_name = var.project_name
     environment = var.environment
     common_tags = var.common_tags
@@ -42,7 +42,7 @@ module "bastion_sg" {
 }
 
 module "ansible_sg" {
-    source = "../../terraform-aws-security-group"
+    source = "git::https://github.com/jonnadulachaitanya/terraform-aws-security-group.git?ref=main"
     Project_name = var.project_name
     environment = var.environment
     common_tags = var.common_tags
