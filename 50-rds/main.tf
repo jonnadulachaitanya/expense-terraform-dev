@@ -1,4 +1,4 @@
-module "mysql" {
+module "db" {
   source = "terraform-aws-modules/rds/aws"
 
   identifier = local.resource_name #expense-dev
